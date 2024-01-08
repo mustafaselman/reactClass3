@@ -2,6 +2,9 @@ import JSX from "./1-JSX/JSX"
 import Props from "./2-Props/Props"
 import Events from "./3-Events/Events";
 import Conditionals from "./4-Conditionals/Conditionals";
+import Lists from "./5-Lists/Lists";
+import UseStateHook from "./6-UseStateHook/UseStateHook";
+import UseEffectHook from "./7-UseEffectHook/UseEffectHook";
 
 function App() {
   return (
@@ -9,7 +12,10 @@ function App() {
       {/* <JSX/> */}
       {/* <Props/> */}
       {/* <Events/> */}
-      <Conditionals/>
+      {/* <Conditionals/> */}
+      {/* <Lists/> */}
+      {/* <UseStateHook/> */}
+      <UseEffectHook/>
     </div>
   );
 }

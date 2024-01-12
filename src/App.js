@@ -6,6 +6,7 @@ import Lists from "./5-Lists/Lists";
 import UseStateHook from "./6-UseStateHook/UseStateHook";
 import UseEffectHook from "./7-UseEffectHook/UseEffectHook";
 import Forms from "./8-Forms/Forms";
+import Router from "./9-Router/Router";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       {/* <Lists/> */}
       {/* <UseStateHook/> */}
       {/* <UseEffectHook/> */}
-      <Forms/>
+      {/* <Forms/> */}
+      <Router/>
     </div>
   );
 }

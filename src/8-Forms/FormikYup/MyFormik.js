@@ -5,18 +5,8 @@ import validations from "./validations";
 
 
 const MyFormik = () => {
-  
-    const [value,setValue] = useState("")
-    
 
-    useEffect(()=>{
-        const valueReset = (value) => {
-            return true;
-        }
-    },[value])
-
-
-    const { handleSubmit, handleChange, errors, touched, handleBlur } = useFormik(
+    const { handleSubmit, handleChange, errors, touched, values, handleBlur } = useFormik(
     {
       initialValues: {
         name: "",
@@ -41,6 +31,7 @@ const MyFormik = () => {
         type="text"
         name="name"
         placeholder="name"
+        value={values.name}
         onChange={handleChange}
         onBlur={handleBlur}
       />
@@ -50,18 +41,20 @@ const MyFormik = () => {
         type="text"
         name="email"
         placeholder="email"
+        value={values.email}
         onChange={handleChange}
         onBlur={handleBlur}
       />
       <br></br>
       {errors.email && touched.email && <div style={{color:"red"}}>{errors.email}</div>}
       <label>Male</label>
-      <input type="radio" name="gender" value="male" onChange={handleChange} />
+      <input type="radio" name="gender" value="male"  checked={values.gender === 'male'} onChange={handleChange} />
       <label>Female</label>
       <input
         type="radio"
         name="gender"
         value="female"
+        checked={values.gender === 'male'}
         onChange={handleChange}
       />
       <br></br>
@@ -70,6 +63,7 @@ const MyFormik = () => {
         type="checkbox"
         name="hobies"
         value="football"
+        // checked={values.hobies}
         onChange={handleChange}
       />
       <label>Cinema</label>
@@ -77,6 +71,7 @@ const MyFormik = () => {
         type="checkbox"
         name="hobies"
         value="cinema"
+        // checked={values.hobies}
         onChange={handleChange}
       />
       <label>Photography</label>
@@ -84,10 +79,11 @@ const MyFormik = () => {
         type="checkbox"
         name="hobies"
         value="photography"
+        // checked={values.hobies}
         onChange={handleChange}
       />
       <br></br>
-      <select name="country" onChange={handleChange}>
+      <select name="country" onChange={handleChange} value={values.country}>
         <option value="">- Select Country -</option>
         <option value="tr">Turkey</option>
         <option value="en">England</option>
@@ -97,12 +93,12 @@ const MyFormik = () => {
     <label>Password</label>
     <br></br>
     {errors.password && touched.password && <div style={{color:"red"}}>{errors.password}</div>}
-    <input name="password" onChange={handleChange} onBlur={handleBlur}/>
+    <input name="password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
     <br></br>
     <label>ConfirmPassword</label>
     <br></br>
     {errors.confirmPassword && touched.confirmPassword && <div style={{color:"red"}}>{errors.confirmPassword}</div>}
-    <input name="confirmPassword" onChange={handleChange} onBlur={handleBlur}/>
+    <input name="confirmPassword" value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur}/>
     <br></br>
     <button type="submit">Kayıt Ol</button>
     <button type="reset" >Reset</button>

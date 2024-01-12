@@ -7,6 +7,13 @@ import validations from "./validations";
 const MyFormik = () => {
   
     const [value,setValue] = useState("")
+    
+
+    useEffect(()=>{
+        const valueReset = (value) => {
+            return true;
+        }
+    },[value])
 
 
     const { handleSubmit, handleChange, errors, touched, handleBlur } = useFormik(
@@ -22,8 +29,7 @@ const MyFormik = () => {
       },
       onSubmit: (values, bag) => {
         console.log(values);
-        setValue(values)
-        bag.resetForm();
+        bag.resetForm()
       },
       validationSchema: validations
     }
@@ -39,6 +45,7 @@ const MyFormik = () => {
         onBlur={handleBlur}
       />
       <br></br>
+      {errors.name && touched.name && <div style={{color:"red"}}>{errors.name}</div>}
       <input
         type="text"
         name="email"
@@ -47,6 +54,7 @@ const MyFormik = () => {
         onBlur={handleBlur}
       />
       <br></br>
+      {errors.email && touched.email && <div style={{color:"red"}}>{errors.email}</div>}
       <label>Male</label>
       <input type="radio" name="gender" value="male" onChange={handleChange} />
       <label>Female</label>
@@ -88,13 +96,16 @@ const MyFormik = () => {
     <br></br>
     <label>Password</label>
     <br></br>
+    {errors.password && touched.password && <div style={{color:"red"}}>{errors.password}</div>}
     <input name="password" onChange={handleChange} onBlur={handleBlur}/>
     <br></br>
     <label>ConfirmPassword</label>
     <br></br>
+    {errors.confirmPassword && touched.confirmPassword && <div style={{color:"red"}}>{errors.confirmPassword}</div>}
     <input name="confirmPassword" onChange={handleChange} onBlur={handleBlur}/>
     <br></br>
-    <button type="submit" >Kayıt Ol</button>
+    <button type="submit">Kayıt Ol</button>
+    <button type="reset" >Reset</button>
     </form>
   );
 };

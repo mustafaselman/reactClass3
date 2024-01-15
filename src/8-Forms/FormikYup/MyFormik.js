@@ -5,7 +5,7 @@ import validations from "./validations";
 
 
 const MyFormik = () => {
-
+    
     const { handleSubmit, handleChange, errors, touched, values, handleBlur } = useFormik(
     {
       initialValues: {
@@ -54,7 +54,7 @@ const MyFormik = () => {
         type="radio"
         name="gender"
         value="female"
-        checked={values.gender === 'male'}
+        checked={values.gender === 'female'}
         onChange={handleChange}
       />
       <br></br>
@@ -63,7 +63,7 @@ const MyFormik = () => {
         type="checkbox"
         name="hobies"
         value="football"
-        // checked={values.hobies}
+        checked={values.hobies.includes('football')}
         onChange={handleChange}
       />
       <label>Cinema</label>
@@ -71,7 +71,7 @@ const MyFormik = () => {
         type="checkbox"
         name="hobies"
         value="cinema"
-        // checked={values.hobies}
+        checked={values.hobies.includes('cinema')}
         onChange={handleChange}
       />
       <label>Photography</label>
@@ -79,7 +79,7 @@ const MyFormik = () => {
         type="checkbox"
         name="hobies"
         value="photography"
-        // checked={values.hobies}
+        checked={values.hobies.includes('photography')}
         onChange={handleChange}
       />
       <br></br>

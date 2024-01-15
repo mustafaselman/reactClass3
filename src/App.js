@@ -18,8 +18,8 @@ function App() {
       {/* <Lists/> */}
       {/* <UseStateHook/> */}
       {/* <UseEffectHook/> */}
-      {/* <Forms/> */}
-      <Router/>
+      <Forms/>
+      {/* <Router/> */}
     </div>
   );
 }
